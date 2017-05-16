@@ -7,11 +7,14 @@ public class Inventory
 	
 	public static void returnItems()
 	{
-		inventory.add(allItems.getGameItems.get(0));
+		List<Item> items = allItems.getGameItems();
+		Item item = items.get(0);
+		inventory.add(item);
 		for (Item i: inventory)
 		{
 			System.out.println(i.getName() +
-			"Damage: " + i.getDamage());
+			"\n" + i.getDescription() +
+			"\nDamage: " + i.getDamage());
 		}
 	}
 	
