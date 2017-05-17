@@ -3,6 +3,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.animation.FillTransition;
+import javafx.util.Duration;
+import javafx.scene.shape.Shape;
 
 public class gameRun extends Application {
 
@@ -36,6 +39,9 @@ public class gameRun extends Application {
 		playButton.setPrefHeight(36);
 		creditsButton.setPrefWidth(400);
         layout.getChildren().addAll(playButton, instructionsButton, settingsButton, creditsButton);
+		
+		FillTransition toOrange = new FillTransition(Duration.seconds(0.4), playButton);
+        toOrange.setToValue(Color.ORANGE);
 		
         Scene game = new Scene(layout, 1280, 720);
 
