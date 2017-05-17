@@ -3,12 +3,18 @@
 	-fx-background-image: url("GAMEMenu.png");
 }
 
+@font-face {
+    font-family: "Future";
+    src: url("ESP_Italic.ttf");
+}
+
 .button
 {
 	-fx-background-color: transparent;
 	-fx-text-fill: white;
 	-fx-font-size: 36px;
-	-fx-font-family: "Courier New", Arial, Monospace;
+	/*-fx-font-family: "Courier New", Arial, Monospace;*/
+	-fx-font-family: "Future";
 	-fx-font-weight: bold;
 	-fx-alignment: center-left;
 	-fx-width: 100px;
@@ -18,4 +24,10 @@
 {
 	-fx-text-fill: orange;
 	-fx-font-style: italic;
+}
+
+.TM
+{
+	-fx-text-fill:white;
+	-fx-alignment: center-right;
 }
