@@ -1,0 +1,20 @@
+.root
+{
+	-fx-background-image: url("GAMEMenu.png");
+}
+
+.button
+{
+	-fx-background-color: transparent;
+	-fx-text-fill: white;
+	-fx-font-size: 36px;
+	-fx-font-family: "Courier New", Arial, Monospace;
+	-fx-font-weight: bold;
+	-fx-alignment: center-left;
+}
+
+.button:hover
+{
+	-fx-text-fill: orange;
+	-fx-font-style: italic;
+}
