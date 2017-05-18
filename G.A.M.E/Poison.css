@@ -22,16 +22,15 @@
 	 -fx-font-size: 24px;
 	-fx-font-family: 'RPM';
 	-fx-alignment: center-left;
-	-fx-padding: 0px;
-	-fx-pref-width: 400px;
+	-fx-padding: 0px 0px 0px 30px;
+	-fx-pref-width: 450px;
 }
 
 .button:hover
 {
 	//Work on this
-	-fx-pref-width: 450px;
 	-fx-background-image: url("button.png");
-	-fx-text-fill: #f73016;
+	-fx-text-fill: #ADD8E6;
 	-fx-font-style: italic;
 }
 

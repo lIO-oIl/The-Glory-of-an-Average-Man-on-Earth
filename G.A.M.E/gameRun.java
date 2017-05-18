@@ -38,10 +38,10 @@ public class gameRun extends Application {
 		trademark.relocate(1230, 0);
 		trademark.getStyleClass().add("TM");
 		
-		playButton.relocate(125, 400);
-		instructionsButton.relocate(125, 436);
-		settingsButton.relocate(125, 472);
-		creditsButton.relocate(125, 508);
+		playButton.relocate(95, 400);
+		instructionsButton.relocate(95, 436);
+		settingsButton.relocate(95, 472);
+		creditsButton.relocate(95, 508);
 		
         layout.getChildren().addAll(trademark, playButton, instructionsButton, settingsButton, creditsButton);
 		
