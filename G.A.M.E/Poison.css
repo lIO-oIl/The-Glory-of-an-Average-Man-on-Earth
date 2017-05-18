@@ -4,30 +4,39 @@
 }
 
 @font-face {
-    font-family: "Future";
-    src: url("ESP_Italic.ttf");
+    font-family: 'RPM';
+    src: url('RPM.otf');
 }
+
+@font-face {
+    font-family: 'RPM';
+	front-style: italic;
+    src: url('RPMi.otf');
+}
+
 
 .button
 {
 	-fx-background-color: transparent;
 	-fx-text-fill: white;
-	-fx-font-size: 36px;
-	/*-fx-font-family: "Courier New", Arial, Monospace;*/
-	-fx-font-family: "Future";
-	-fx-font-weight: bold;
+	 -fx-font-size: 24px;
+	-fx-font-family: 'RPM';
 	-fx-alignment: center-left;
-	-fx-width: 100px;
+	-fx-padding: 0px;
+	-fx-pref-width: 400px;
 }
 
 .button:hover
 {
-	-fx-text-fill: orange;
+	//Work on this
+	-fx-pref-width: 450px;
+	-fx-background-image: url("button.png");
+	-fx-text-fill: #f73016;
 	-fx-font-style: italic;
 }
 
 .TM
 {
-	-fx-text-fill:white;
-	-fx-alignment: center-right;
+	-fx-text-fill: white;
+	-fx-text-align: right;
 }
