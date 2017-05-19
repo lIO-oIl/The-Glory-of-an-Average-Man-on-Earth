@@ -82,9 +82,25 @@ public class settingsRun
 		allMute.relocate(825, 450);
 		bgmMute.relocate(825, 500);
 		sfxMute.relocate(825, 550);
+
+		if(sfxMute.getText().equals("Unmute"))
+			buttonPlay.setVolume(0.0);
 		
 		backButton.setOnAction(e ->{
-			menu.newSettings(bgmAdjust.getValue(), sfxAdjust.getValue());
+			if(bgmMute.getText().equals("Mute") && sfxMute.getText().equals("Mute")) {
+				menu.newSettings(bgmAdjust.getValue(), sfxAdjust.getValue(), nameText.getText());
+			}
+			else if(bgmMute.getText().equals("Mute") && sfxMute.getText().equals("Unmute")) {
+				menu.newSettings(bgmAdjust.getValue(), 0.0, nameText.getText());
+			}
+			else if(bgmMute.getText().equals("Unmute") && sfxMute.getText().equals("Mute")) {
+				menu.newSettings(0.0, sfxAdjust.getValue(), nameText.getText());
+				buttonPlay.setVolume(0.0);
+			}
+			else {
+				menu.newSettings(0.0, 0.0, nameText.getText());
+				buttonPlay.setVolume(0.0);
+			}
 			menu.returnToMenu(stage);
 			active = true;
 		});
@@ -95,14 +111,14 @@ public class settingsRun
 				bgmLast = bgmAdjust.getValue();
 				bgmAdjust.setValue(0);
 				bgmMute.setText("Unmute");
-				menu.newSettings(bgmAdjust.getValue(), sfxAdjust.getValue());
+				menu.newSettings(bgmAdjust.getValue(), sfxAdjust.getValue(), nameText.getText());
 				buttonPlay.setVolume(sfxAdjust.getValue() / 100);
 			}
 			else
 			{
 				bgmAdjust.setValue(bgmLast);
 				bgmMute.setText("Mute");
-				menu.newSettings(bgmAdjust.getValue(), sfxAdjust.getValue());
+				menu.newSettings(bgmAdjust.getValue(), sfxAdjust.getValue(), nameText.getText());
 				buttonPlay.setVolume(sfxAdjust.getValue() / 100);
 			}
 		});
@@ -113,14 +129,14 @@ public class settingsRun
 				sfxLast = sfxAdjust.getValue();
 				sfxAdjust.setValue(0);
 				sfxMute.setText("Unmute");
-				menu.newSettings(bgmAdjust.getValue(), sfxAdjust.getValue());
+				menu.newSettings(bgmAdjust.getValue(), sfxAdjust.getValue(), nameText.getText());
 				buttonPlay.setVolume(sfxAdjust.getValue() / 100);
 			}
 			else
 			{
 				sfxAdjust.setValue(sfxLast);
 				sfxMute.setText("Mute");
-				menu.newSettings(bgmAdjust.getValue(), sfxAdjust.getValue());
+				menu.newSettings(bgmAdjust.getValue(), sfxAdjust.getValue(), nameText.getText());
 				buttonPlay.setVolume(sfxAdjust.getValue() / 100);
 			}
 		});
@@ -134,7 +150,7 @@ public class settingsRun
 			sfxMute.setText("Unmute");
 			bgmAdjust.setValue(0);
 			bgmMute.setText("Unmute");
-			menu.newSettings(bgmAdjust.getValue(), sfxAdjust.getValue());
+			menu.newSettings(bgmAdjust.getValue(), sfxAdjust.getValue(), nameText.getText());
 			buttonPlay.setVolume(sfxAdjust.getValue() / 100);
 		});
 		

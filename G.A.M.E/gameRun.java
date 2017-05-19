@@ -28,6 +28,7 @@ public class gameRun extends Application {
 	MediaPlayer bgm, buttonPlay;
 	settingsRun settings = new settingsRun();
 	Scene menu;
+	String username;
 	
 
     public static void main(String[] args) {
@@ -58,7 +59,7 @@ public class gameRun extends Application {
 		//Button Triggers
 		playButton.setOnAction(e -> System.out.println("Play"));
 		instructionsButton.setOnAction(e -> System.out.println("Instructions"));
-		settingsButton.setOnAction(e -> settings.runScene(stage, this)); //WIP
+		settingsButton.setOnAction(e -> settings.runScene(stage, this));
 		creditsButton.setOnAction(e -> System.out.println("Credits"));
 		exitButton.setOnAction(e -> stage.close());
 		
@@ -90,9 +91,10 @@ public class gameRun extends Application {
         stage.show();
     }
 	
-	public void newSettings(Double bgmVol, Double sfxVol) {
+	public void newSettings(Double bgmVol, Double sfxVol, String name) {
 		bgm.setVolume(0.3 * (bgmVol / 100));
 		buttonPlay.setVolume(0.5 * sfxVol / 100);
+		username = name;
 	}
 	
 	public void returnToMenu(Stage stage) {
