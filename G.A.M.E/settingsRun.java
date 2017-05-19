@@ -18,6 +18,7 @@ import javafx.geometry.Insets;
 import javafx.scene.transform.Translate;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
+import javafx.scene.control.TextField;
 //Sound
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -34,6 +35,7 @@ public class settingsRun
 	Button sfxMute = new Button("Mute");
 	Double sfxLast;
 	Button allMute = new Button("Mute");
+	TextField nameText = new TextField("Player");
 	MediaPlayer buttonPlay;
 	
 	public void runScene(Stage stage, gameRun menu) {
@@ -55,15 +57,22 @@ public class settingsRun
 			sfxAdjust.setValue(100);
 		}
 		
-		backButton = new Button("Apply");
-		
-		Label volumeLabel = new Label("Volume Control");
 		Line volumeSeperator = new Line(585, 468, 815, 468);
 		volumeSeperator.setStroke(Color.WHITE);
 		volumeSeperator.setStrokeWidth(2);
+		
+		Line seperator = new Line(380, 425, 900, 425);
+		seperator.setStroke(Color.WHITE);
+		seperator.setStrokeWidth(2);
+		
+		backButton = new Button("Apply");
+		Label volumeLabel = new Label("Volume Control");
 		Label bgmLabel = new Label("Background Music:");
 		Label sfxLabel = new Label("Sound Effects:");
+		Label nameLabel = new Label("Username");
 		
+		nameLabel.relocate(575, 300);
+		nameText.relocate(575, 350);
 		backButton.relocate(380, 600);
 		volumeLabel.relocate(380, 450);
 		bgmLabel.relocate(380, 500);
@@ -140,7 +149,7 @@ public class settingsRun
 		buttonPlay.setVolume(sfxAdjust.getValue() / 100);
 		
 		Scene settings = new Scene(layout, 1280, 720);
-        layout.getChildren().addAll(bgmAdjust, sfxAdjust, backButton, bgmMute, sfxMute, allMute, bgmLabel, sfxLabel, volumeLabel, volumeSeperator);
+        layout.getChildren().addAll(bgmAdjust, sfxAdjust, backButton, bgmMute, sfxMute, allMute, bgmLabel, sfxLabel, volumeLabel, seperator, volumeSeperator, nameLabel, nameText);
 		settings.getStylesheets().add("settings.css");
 		stage.setScene(settings);
         stage.show();
