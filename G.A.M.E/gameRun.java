@@ -27,6 +27,7 @@ public class gameRun extends Application {
     Button playButton, instructionsButton, settingsButton, creditsButton, exitButton;
 	MediaPlayer bgm, buttonPlay;
 	settingsRun settings = new settingsRun();
+	game game = new game();
 	Scene menu;
 	String username;
 	
@@ -57,7 +58,7 @@ public class gameRun extends Application {
 		exitButton.relocate(95, 544);
 		
 		//Button Triggers
-		playButton.setOnAction(e -> System.out.println("Play"));
+		playButton.setOnAction(e -> game.runScene(stage, this));
 		instructionsButton.setOnAction(e -> System.out.println("Instructions"));
 		settingsButton.setOnAction(e -> settings.runScene(stage, this));
 		creditsButton.setOnAction(e -> System.out.println("Credits"));
