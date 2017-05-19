@@ -19,7 +19,7 @@
 {
 	-fx-background-color: transparent;
 	-fx-text-fill: white;
-	 -fx-font-size: 24px;
+	-fx-font-size: 24px;
 	-fx-font-family: 'RPM';
 	-fx-alignment: center-left;
 	-fx-padding: 0px 0px 0px 30px;
@@ -28,7 +28,6 @@
 
 .button:hover
 {
-	//Work on this
 	-fx-background-image: url("button.png");
 	-fx-text-fill: #ADD8E6;
 	-fx-font-style: italic;

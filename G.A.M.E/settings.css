@@ -1,0 +1,56 @@
+.root
+{
+	-fx-background-image: url("settingsBack.png");
+}
+
+@font-face {
+    font-family: 'RPM';
+    src: url('RPM.otf');
+}
+
+@font-face {
+    font-family: 'RPM';
+	front-style: italic;
+    src: url('RPMi.otf');
+}
+
+
+.button
+{
+	-fx-background-color: transparent;
+	-fx-text-fill: white;
+	-fx-font-size: 24px;
+	-fx-font-family: 'RPM';
+	-fx-alignment: center-left;
+	-fx-padding: 0px;
+	-fx-pref-width: 400px;
+}
+
+.button:hover
+{
+	-fx-text-fill: #ADD8E6;
+	-fx-font-style: italic;
+}
+
+.label
+{
+	-fx-text-fill: white;
+	-fx-font-size: 24px;
+	-fx-font-family: 'RPM';
+}
+
+.slider .thumb
+{
+	-fx-background-image: url("sliderIcon.png");
+	-fx-background-color: transparent;
+	-fx-pref-height: 30px;
+    -fx-pref-width: 20px;
+}
+
+.slider .track {
+    -fx-pref-width: 300px;
+}
+
+.slider .axis-tick-label {
+	-fx-text-fill: white;
+}
