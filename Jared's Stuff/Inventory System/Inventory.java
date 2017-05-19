@@ -8,8 +8,11 @@ public class Inventory
 	public static void returnItems()
 	{
 		List<Item> items = allItems.getGameItems();
-		Item item = items.get(0);
-		inventory.add(item);
+		for (Item i : items)
+		{
+			Item item = i;
+			inventory.add(item);
+		}	
 		for (Item i: inventory)
 		{
 			System.out.println(i.getName() +
