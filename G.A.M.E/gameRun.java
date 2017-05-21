@@ -28,6 +28,7 @@ public class gameRun extends Application {
 	MediaPlayer bgm, buttonPlay;
 	settingsRun settings = new settingsRun();
 	game game = new game();
+	worldMap map = new worldMap();
 	Scene menu;
 	String username;
 	
@@ -58,7 +59,12 @@ public class gameRun extends Application {
 		exitButton.relocate(95, 544);
 		
 		//Button Triggers
-		playButton.setOnAction(e -> game.runScene(stage, this));
+		playButton.setOnAction(e ->{
+			map.createLocations();
+			game.runScene(stage, this);
+			map.startGame(game);
+			bgm.stop();
+			});
 		instructionsButton.setOnAction(e -> System.out.println("Instructions"));
 		settingsButton.setOnAction(e -> settings.runScene(stage, this));
 		creditsButton.setOnAction(e -> System.out.println("Credits"));
@@ -75,11 +81,7 @@ public class gameRun extends Application {
 		
 		Media bg = new Media(new File("Background.mp3").toURI().toString());
 		bgm = new MediaPlayer(bg);
-		bgm.setOnEndOfMedia(new Runnable() {
-			public void run() {
-				bgm.seek(Duration.ZERO);
-			}
-		});
+		bgm.setCycleCount(bgm.INDEFINITE);
 		bgm.setVolume(0.3);
 		bgm.play();
 		
@@ -93,7 +95,7 @@ public class gameRun extends Application {
     }
 	
 	public void newSettings(Double bgmVol, Double sfxVol, String name) {
-		bgm.setVolume(0.3 * (bgmVol / 100));
+		bgm.setVolume(0.3 * (settings.getBGMVolume()));
 		buttonPlay.setVolume(0.5 * sfxVol / 100);
 		username = name;
 	}
