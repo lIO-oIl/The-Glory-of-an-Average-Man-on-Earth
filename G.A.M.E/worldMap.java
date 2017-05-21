@@ -35,7 +35,7 @@ public class worldMap
 		Pane layout = new Pane();
 		
 		Button beachButton = new Button("x");
-		beachButton.relocate(10, 10);
+		beachButton.relocate(50, 50);
 		
 		backToGame.setOnAction(e ->{
 			Game.returnToGame(stage);
