@@ -30,3 +30,97 @@
 {
 	-fx-text-fill: #ADD8E6;
 }
+
+.label
+{
+	-fx-text-fill: white;
+}
+
+.areaStats
+{
+	-fx-text-fill: white;
+	-fx-text-align: center;
+	-fx-font-size: 24px;
+	-fx-font-family: 'RPM';
+	-fx-pref-width: 1280px;
+}
+
+.green
+{
+	-fx-background-image: url("mapGreen.png");
+	-fx-font-size: 1px;
+	-fx-font-family: 'Arial';
+	-fx-pref-width: 10px;
+	-fx-pref-height: 10px;
+}
+
+.green:hover
+{
+	-fx-background-image: url("mapSelected.png");
+}
+
+.yellow
+{
+	-fx-background-image: url("mapYellow.png");
+	-fx-font-size: 1px;
+	-fx-font-family: 'Arial';
+	-fx-pref-width: 10px;
+	-fx-pref-height: 10px;
+}
+
+.yellow:hover
+{
+	-fx-background-image: url("mapSelected.png");
+}
+
+.orange
+{
+	-fx-background-image: url("mapOrange.png");
+	-fx-font-size: 1px;
+	-fx-font-family: 'Arial';
+	-fx-pref-width: 10px;
+	-fx-pref-height: 10px;
+}
+
+.orange:hover
+{
+	-fx-background-image: url("mapSelected.png");
+}
+
+.red
+{
+	-fx-background-image: url("mapRed.png");
+	-fx-font-size: 1px;
+	-fx-font-family: 'Arial';
+	-fx-pref-width: 10px;
+	-fx-pref-height: 10px;
+}
+
+.red:hover
+{
+	-fx-background-image: url("mapSelected.png");
+}
+
+.town
+{
+	-fx-background-image: url("mapTown.png");
+	-fx-pref-width: 20px;
+	-fx-pref-height: 20px;
+}
+
+.town:hover
+{
+	-fx-background-image: url("mapTownSelected.png");
+}
+
+.here
+{
+	-fx-background-image: url("mapCurrent.png");
+	-fx-pref-width: 20px;
+	-fx-pref-height: 30px;
+}
+
+.here:hover
+{
+	-fx-background-image: url("mapCurrent.png");
+}

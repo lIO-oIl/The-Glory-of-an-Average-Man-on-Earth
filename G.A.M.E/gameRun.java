@@ -61,7 +61,7 @@ public class gameRun extends Application {
 		//Button Triggers
 		playButton.setOnAction(e ->{
 			map.createLocations();
-			game.runScene(stage, this);
+			game.runScene(stage, this, map);
 			map.startGame(game);
 			bgm.stop();
 			});

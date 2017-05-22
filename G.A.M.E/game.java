@@ -30,13 +30,12 @@ import javafx.scene.media.MediaPlayer.Status;
 
 public class game
 {
-	worldMap map = new worldMap();
 	Scene game;
 	Media bg = new Media(new File("YourHometown.mp3").toURI().toString());
 	MediaPlayer bgm;
 	Timeline timeline;
 	
-	public void runScene(Stage stage, gameRun menu) {
+	public void runScene(Stage stage, gameRun menu, worldMap map) {
 		Pane layout = new Pane();
 		Button mapButton = new Button("Map");
 		mapButton.setOnAction(e ->{map.runScene(stage, this);});
@@ -64,6 +63,7 @@ public class game
 		
 		timeline = new Timeline(new KeyFrame(Duration.seconds(2), new KeyValue(bgm.volumeProperty(), 1)));
 		timeline.play();
+		bgm.setCycleCount(bgm.INDEFINITE);
 	}
 	
 	public void returnToGame(Stage stage) {

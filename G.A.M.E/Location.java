@@ -29,7 +29,8 @@ import java.io.File;
 
 public class Location
 {
-	String name, description, bgm, type;
+	String name, description, bgm, type, grade;
+	int percent;
 	
 	public Location()
 	{
@@ -37,14 +38,16 @@ public class Location
 		description = "Everyone smiles here and talks about sunshines and rainbows. It has a familiar scent of roasted pigs and handknit socks.";
 		bgm = "YourHometown.mp3";
 		type = "Town";
+		percent = 0;
 	}
 	
-	public Location(String n, String d, String m, String t)
+	public Location(String n, String d, String m, String t, int p)
 	{
 		name = n;
 		description = d;
 		bgm = m;
 		type = t;
+		percent = 0;
 	}
 	
 	public String getName()
@@ -67,8 +70,28 @@ public class Location
 		return type;
 	}
 	
+	public String getCompletion()
+	{
+		return percent + "%";
+	}
+	
+	public String getGrade()
+	{
+		return grade;
+	}
+	
+	public void setGrade(String g)
+	{
+		grade = "Grade " + g + " Town";
+	}
+	
+	public void setCompletion(int p)
+	{
+		percent = 5 * p;
+	}
+	
 	public String toString()
 	{
-		return "" + name + description;
+		return name;
 	}
 }
