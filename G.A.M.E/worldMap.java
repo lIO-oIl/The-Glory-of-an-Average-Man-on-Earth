@@ -68,8 +68,10 @@ public class worldMap
 		
 		Pane layout = new Pane();
 		
-		detailed.relocate(0, -1000);
-		percent.relocate(0, -1000);
+		detailed.relocate(0, 600);
+		percent.relocate(0, 640);
+		getCurrent();
+		
 		hovered.relocate(-1000, -1000);
 		backToGame.relocate(10, 0);
 		detailed.getStyleClass().add("areaStats");
@@ -307,8 +309,7 @@ public class worldMap
 			});
 			buttons[i].setOnMouseExited(e->{
 				hovered.relocate(-1000, -1000);
-				detailed.relocate(0, -1000);
-				percent.relocate(0, -1000);
+				getCurrent();
 			});
 		}
 		
@@ -427,8 +428,6 @@ public class worldMap
 	
 	public void move(Location item, double eX, double eY)
 	{
-		detailed.relocate(0, 600);
-		percent.relocate(0, 640);
 		hovered.setText(item.toString());
 		detailed.setText(item.toString());
 		if(item.getType().equals("Zone"))
@@ -436,5 +435,14 @@ public class worldMap
 		else
 			percent.setText(item.getGrade());
 		hovered.relocate(eX, eY);
+	}
+	
+	public void getCurrent()
+	{
+		detailed.setText(newLocation.toString());
+		if(newLocation.getType().equals("Zone"))
+			percent.setText("Completion: " + newLocation.getCompletion());
+		else
+			percent.setText(newLocation.getGrade());
 	}
 }

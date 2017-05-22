@@ -61,12 +61,12 @@ public class gameRun extends Application {
 		//Button Triggers
 		playButton.setOnAction(e ->{
 			map.createLocations();
-			game.runScene(stage, this, map);
+			game.runScene(stage, this, map, settings);
 			map.startGame(game);
 			bgm.stop();
 			});
 		instructionsButton.setOnAction(e -> System.out.println("Instructions"));
-		settingsButton.setOnAction(e -> settings.runScene(stage, this));
+		settingsButton.setOnAction(e -> settings.runScene(stage, this, menu));
 		creditsButton.setOnAction(e -> System.out.println("Credits"));
 		exitButton.setOnAction(e -> stage.close());
 		
@@ -98,10 +98,5 @@ public class gameRun extends Application {
 		bgm.setVolume(0.3 * (settings.getBGMVolume()));
 		buttonPlay.setVolume(0.5 * sfxVol / 100);
 		username = name;
-	}
-	
-	public void returnToMenu(Stage stage) {
-		stage.setScene(menu);
-        stage.show();
 	}
 }

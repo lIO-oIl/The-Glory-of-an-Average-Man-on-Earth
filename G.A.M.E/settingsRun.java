@@ -39,7 +39,7 @@ public class settingsRun
 	MediaPlayer buttonPlay;
 	Scene settings;
 	
-	public void runScene(Stage stage, gameRun menu) {
+	public void runScene(Stage stage, gameRun menu, Scene prev) {
 		Pane layout = new Pane();
 		
 		bgmAdjust.setMin(0);
@@ -89,7 +89,8 @@ public class settingsRun
 				sfxAdjust.setValue(0.0);
 			}
 			menu.newSettings(bgmAdjust.getValue(), sfxAdjust.getValue(), nameText.getText());
-			menu.returnToMenu(stage);
+			stage.setScene(prev);
+			stage.show();
 			active = true;
 		});
 		

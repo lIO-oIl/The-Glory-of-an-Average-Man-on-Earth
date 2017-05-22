@@ -34,14 +34,21 @@ public class game
 	Media bg = new Media(new File("YourHometown.mp3").toURI().toString());
 	MediaPlayer bgm;
 	Timeline timeline;
+	String username;
+	settingsRun settings;
 	
-	public void runScene(Stage stage, gameRun menu, worldMap map) {
+	public void runScene(Stage stage, gameRun menu, worldMap map, settingsRun s) {
+		settings = s;
 		Pane layout = new Pane();
 		Button mapButton = new Button("Map");
+		Button settingsButton = new Button("Settings");
 		mapButton.setOnAction(e ->{map.runScene(stage, this);});
 		
+		settingsButton.setOnAction(e -> settings.runScene(stage, menu, game));
+		settingsButton.relocate(0, 30);
+		
 		game = new Scene(layout, 1280, 720);
-        layout.getChildren().addAll(mapButton);
+        layout.getChildren().addAll(mapButton, settingsButton);
 		game.getStylesheets().add("game.css");
 		stage.setScene(game);
         stage.show();
@@ -69,5 +76,11 @@ public class game
 	public void returnToGame(Stage stage) {
 		stage.setScene(game);
         stage.show();
+	}
+	
+	public void newSettings(Double bgmVol, Double sfxVol, String name) {
+		bgm.setVolume(0.3 * (settings.getBGMVolume()));
+		//buttonPlay.setVolume(0.5 * sfxVol / 100);
+		username = name;
 	}
 }
