@@ -1,3 +1,5 @@
+package Jared_Stuff.Inventory_System;
+
 public class Item
 {
 	public String name, description;

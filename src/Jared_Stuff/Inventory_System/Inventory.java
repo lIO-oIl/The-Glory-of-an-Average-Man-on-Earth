@@ -1,3 +1,5 @@
+package Jared_Stuff.Inventory_System;
+
 import java.util.ArrayList;
 import java.util.List;
 
