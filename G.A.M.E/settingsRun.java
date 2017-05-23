@@ -37,8 +37,9 @@ public class settingsRun
 	Button allMute = new Button("Mute");
 	TextField nameText = new TextField("Player");
 	MediaPlayer buttonPlay;
+	Scene settings;
 	
-	public void runScene(Stage stage, gameRun menu) {
+	public void runScene(Stage stage, gameRun menu, Scene prev) {
 		Pane layout = new Pane();
 		
 		bgmAdjust.setMin(0);
@@ -77,31 +78,19 @@ public class settingsRun
 		volumeLabel.relocate(380, 450);
 		bgmLabel.relocate(380, 500);
 		sfxLabel.relocate(380, 550);
-		bgmAdjust.relocate(625, 505);
-		sfxAdjust.relocate(625, 555);
+		bgmAdjust.relocate(615, 500);
+		sfxAdjust.relocate(615, 550);
 		allMute.relocate(825, 450);
 		bgmMute.relocate(825, 500);
 		sfxMute.relocate(825, 550);
 
-		if(sfxMute.getText().equals("Unmute"))
-			buttonPlay.setVolume(0.0);
-		
 		backButton.setOnAction(e ->{
-			if(bgmMute.getText().equals("Mute") && sfxMute.getText().equals("Mute")) {
-				menu.newSettings(bgmAdjust.getValue(), sfxAdjust.getValue(), nameText.getText());
+			if(sfxMute.getText().equals("Unmute")) {
+				sfxAdjust.setValue(0.0);
 			}
-			else if(bgmMute.getText().equals("Mute") && sfxMute.getText().equals("Unmute")) {
-				menu.newSettings(bgmAdjust.getValue(), 0.0, nameText.getText());
-			}
-			else if(bgmMute.getText().equals("Unmute") && sfxMute.getText().equals("Mute")) {
-				menu.newSettings(0.0, sfxAdjust.getValue(), nameText.getText());
-				buttonPlay.setVolume(0.0);
-			}
-			else {
-				menu.newSettings(0.0, 0.0, nameText.getText());
-				buttonPlay.setVolume(0.0);
-			}
-			menu.returnToMenu(stage);
+			menu.newSettings(bgmAdjust.getValue(), sfxAdjust.getValue(), nameText.getText());
+			stage.setScene(prev);
+			stage.show();
 			active = true;
 		});
 		
@@ -159,15 +148,29 @@ public class settingsRun
 		buttonPlay = new MediaPlayer(bh);
 		for(Button button : allButtons)
 		{
-			button.setOnMouseEntered(e -> buttonPlay.play());
-			button.setOnMouseExited(e -> buttonPlay.stop());
+				button.setOnMouseEntered(e -> buttonPlay.play());
+				button.setOnMouseExited(e -> buttonPlay.stop());
 		}
-		buttonPlay.setVolume(sfxAdjust.getValue() / 100);
+		if(sfxMute.getText().equals("Mute")) {
+			buttonPlay.setVolume(sfxAdjust.getValue() / 100);
+		}
+		else {
+			buttonPlay.setVolume(0.0);
+		}
 		
-		Scene settings = new Scene(layout, 1280, 720);
+		settings = new Scene(layout, 1280, 720);
         layout.getChildren().addAll(bgmAdjust, sfxAdjust, backButton, bgmMute, sfxMute, allMute, bgmLabel, sfxLabel, volumeLabel, seperator, volumeSeperator, nameLabel, nameText);
 		settings.getStylesheets().add("settings.css");
 		stage.setScene(settings);
         stage.show();
+	}
+	
+	public double getBGMVolume()
+	{
+		return bgmAdjust.getValue()/100;
+	}
+	public double getSFXVolume()
+	{
+		return sfxAdjust.getValue()/100;
 	}
 }
