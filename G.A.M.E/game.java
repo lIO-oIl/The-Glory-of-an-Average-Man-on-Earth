@@ -36,24 +36,44 @@ public class game
 	Timeline timeline;
 	String username;
 	settingsRun settings;
+	Location currentLocation;
 	
 	public void runScene(Stage stage, gameRun menu, worldMap map, settingsRun s) {
 		settings = s;
 		Pane layout = new Pane();
 		Button mapButton = new Button("Map");
 		Button settingsButton = new Button("Settings");
+		Button menuButton = new Button("Main Menu");
 		mapButton.setOnAction(e ->{map.runScene(stage, this);});
+		menuButton.setOnAction(e ->{
+			menu.runScene(stage);
+			bgm.stop();
+		});
+		
+		menuButton.relocate(0, 30);
 		
 		settingsButton.setOnAction(e -> settings.runScene(stage, menu, game));
-		settingsButton.relocate(0, 30);
+		settingsButton.relocate(0, 60);
 		
 		game = new Scene(layout, 1280, 720);
-        layout.getChildren().addAll(mapButton, settingsButton);
+        layout.getChildren().addAll(mapButton, settingsButton, menuButton);
 		game.getStylesheets().add("game.css");
 		stage.setScene(game);
         stage.show();
 		bgm = new MediaPlayer(bg);
 		bgm.setCycleCount(bgm.INDEFINITE);
+		
+		try {
+			if(currentLocation.getType().equals("Town"))
+			{
+				loadTown(currentLocation);
+			}
+			else
+			{
+				loadZone(currentLocation);
+			}
+		} 
+		catch(Exception IOException) {}
 	}
 	
 	public void updateLocation (Location newLocation){
@@ -71,6 +91,8 @@ public class game
 		timeline = new Timeline(new KeyFrame(Duration.seconds(2), new KeyValue(bgm.volumeProperty(), 1)));
 		timeline.play();
 		bgm.setCycleCount(bgm.INDEFINITE);
+		
+		currentLocation = newLocation;
 	}
 	
 	public void returnToGame(Stage stage) {
@@ -82,5 +104,13 @@ public class game
 		bgm.setVolume(0.3 * (settings.getBGMVolume()));
 		//buttonPlay.setVolume(0.5 * sfxVol / 100);
 		username = name;
+	}
+	
+	public void loadTown(Location current) {
+		System.out.println(current);
+	}
+	
+	public void loadZone(Location current) {
+		System.out.println(current);
 	}
 }
