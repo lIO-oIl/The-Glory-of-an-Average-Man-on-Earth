@@ -88,7 +88,7 @@
         <entry file="file://$PROJECT_DIR$/src/Jared_Stuff/Mob_System/Mob.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="459">
-              <caret line="27" column="50" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
+              <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
               <folding>
                 <element signature="e#264#265#0" expanded="true" />
                 <element signature="e#282#283#0" expanded="true" />
@@ -137,8 +137,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="361" />
-    <option name="y" value="118" />
+    <option name="x" value="-102" />
+    <option name="y" value="82" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
@@ -655,15 +655,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1495571598723</updated>
-      <workItem from="1495571601765" duration="2728000" />
+      <workItem from="1495571601765" duration="2809000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2728000" />
+    <option name="totallyTimeSpent" value="2809000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="361" y="118" width="1400" height="1000" extended-state="0" />
+    <frame x="-102" y="82" width="1400" height="1000" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -778,7 +778,7 @@
     <entry file="file://$PROJECT_DIR$/src/Jared_Stuff/Mob_System/Mob.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
-          <caret line="27" column="50" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
+          <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
           <folding>
             <element signature="e#264#265#0" expanded="true" />
             <element signature="e#282#283#0" expanded="true" />
