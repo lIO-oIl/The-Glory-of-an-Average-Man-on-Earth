@@ -1,0 +1,40 @@
+.root
+{
+	-fx-background-image: url("GAMEMenu.png");
+}
+
+@font-face {
+    font-family: 'RPM';
+    src: url('RPM.otf');
+}
+
+@font-face {
+    font-family: 'RPM';
+	front-style: italic;
+    src: url('RPMi.otf');
+}
+
+
+.button
+{
+	-fx-background-color: transparent;
+	-fx-text-fill: white;
+	-fx-font-size: 24px;
+	-fx-font-family: 'RPM';
+	-fx-alignment: center-left;
+	-fx-padding: 0px 0px 0px 30px;
+	-fx-pref-width: 450px;
+}
+
+.button:hover
+{
+	-fx-background-image: url("button.png");
+	-fx-text-fill: #ADD8E6;
+	-fx-font-style: italic;
+}
+
+.TM
+{
+	-fx-text-fill: white;
+	-fx-text-align: right;
+}

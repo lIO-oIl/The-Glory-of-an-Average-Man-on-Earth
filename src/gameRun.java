@@ -57,7 +57,7 @@ public class gameRun extends Application {
 		settingsButton.relocate(95, 472);
 		creditsButton.relocate(95, 508);
 		exitButton.relocate(95, 544);
-		
+
 		//Button Triggers
 		playButton.setOnAction(e ->{
 			map.createLocations();
