@@ -51,13 +51,13 @@ public class gameRun extends Application {
         Pane layout = new Pane();
 		trademark.relocate(1230, 0);
 		trademark.getStyleClass().add("TM");
-		
+			
 		playButton.relocate(95, 400);
 		instructionsButton.relocate(95, 436);
 		settingsButton.relocate(95, 472);
 		creditsButton.relocate(95, 508);
 		exitButton.relocate(95, 544);
-		
+
 		//Button Triggers
 		playButton.setOnAction(e ->{
 			map.createLocations();
@@ -94,9 +94,20 @@ public class gameRun extends Application {
         stage.show();
     }
 	
+	public void runScene(Stage stage)
+	{
+		stage.setScene(menu);
+        stage.show();
+		bgm.play();
+	}
+	
 	public void newSettings(Double bgmVol, Double sfxVol, String name) {
 		bgm.setVolume(0.3 * (settings.getBGMVolume()));
 		buttonPlay.setVolume(0.5 * sfxVol / 100);
 		username = name;
+		try{
+			game.newSettings(bgmVol, sfxVol, name);
+		}
+			catch(Exception e) {}
 	}
 }

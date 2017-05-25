@@ -88,6 +88,7 @@ public class worldMap
 				revertLocations();
 				hometownButton.getStyleClass().add("here");
 				hometownButton.relocate(80, 160-5);
+				Game.loadTown(YourHometown);
 			}
 		});
 		
@@ -99,6 +100,7 @@ public class worldMap
 				revertLocations();
 				beachButton.getStyleClass().add("here");
 				beachButton.relocate(180-5, 280-7);
+				Game.loadZone(Beach);
 			}
 		});
 		
@@ -110,6 +112,7 @@ public class worldMap
 				revertLocations();
 				forestButton.getStyleClass().add("here");
 				forestButton.relocate(320-5, 260-7);
+				Game.loadZone(Forest);
 			}
 		});
 		
@@ -121,6 +124,7 @@ public class worldMap
 				revertLocations();
 				caveButton.getStyleClass().add("here");
 				caveButton.relocate(250-5, 310-7);
+				Game.loadZone(Caves);
 			}
 		});
 		
@@ -132,6 +136,7 @@ public class worldMap
 				revertLocations();
 				articButton.getStyleClass().add("here");
 				articButton.relocate(455-5, 90-7);
+				Game.loadZone(Artics);
 			}
 		});
 		
@@ -143,6 +148,7 @@ public class worldMap
 				revertLocations();
 				cityButton.getStyleClass().add("here");
 				cityButton.relocate(350, 500-5);
+				Game.loadTown(TheCity);
 			}
 		});
 		
@@ -154,6 +160,7 @@ public class worldMap
 				revertLocations();
 				junkyardButton.getStyleClass().add("here");
 				junkyardButton.relocate(375-5, 580-7);
+				Game.loadZone(Junkyard);
 			}
 		});
 		
@@ -165,6 +172,7 @@ public class worldMap
 				revertLocations();
 				warzoneButton.getStyleClass().add("here");
 				warzoneButton.relocate(350-5, 360-7);
+				Game.loadZone(Warzone);
 			}
 		});
 		
@@ -176,6 +184,7 @@ public class worldMap
 				revertLocations();
 				minesButton.getStyleClass().add("here");
 				minesButton.relocate(370-5, 425-7);
+				Game.loadZone(AbandonedMines);
 			}
 		});
 		
@@ -187,6 +196,7 @@ public class worldMap
 				revertLocations();
 				monasteryButton.getStyleClass().add("here");
 				monasteryButton.relocate(460-5, 475-7);
+				Game.loadZone(TheMonastery);
 			}
 		});
 		
@@ -198,6 +208,7 @@ public class worldMap
 				revertLocations();
 				villageButton.getStyleClass().add("here");
 				villageButton.relocate(690, 300-5);
+				Game.loadTown(AMistyVillage);
 			}
 		});
 		
@@ -209,6 +220,7 @@ public class worldMap
 				revertLocations();
 				templeButton.getStyleClass().add("here");
 				templeButton.relocate(590-5, 340-7);
+				Game.loadZone(Temple);
 			}
 		});
 		
@@ -220,6 +232,7 @@ public class worldMap
 				revertLocations();
 				atlantisButton.getStyleClass().add("here");
 				atlantisButton.relocate(510-5, 290-7);
+				Game.loadZone(Atlantis);
 			}
 		});
 		
@@ -231,6 +244,7 @@ public class worldMap
 				revertLocations();
 				skyButton.getStyleClass().add("here");
 				skyButton.relocate(680-5, 470-7);
+				Game.loadZone(SkyGarden);
 			}
 		});
 		
@@ -242,6 +256,7 @@ public class worldMap
 				revertLocations();
 				ruinsButton.getStyleClass().add("here");
 				ruinsButton.relocate(690-5, 255-7);
+				Game.loadZone(GreatRuins);
 			}
 		});
 		
@@ -253,6 +268,7 @@ public class worldMap
 				revertLocations();
 				outpostButton.getStyleClass().add("here");
 				outpostButton.relocate(810, 240-5);
+				Game.loadTown(TheWanderersOutpost);
 			}
 		});
 		
@@ -264,6 +280,7 @@ public class worldMap
 				revertLocations();
 				towerButton.getStyleClass().add("here");
 				towerButton.relocate(875-5, 280-7);
+				Game.loadZone(AncientTower);
 			}
 		});
 		
@@ -275,6 +292,7 @@ public class worldMap
 				revertLocations();
 				mansionButton.getStyleClass().add("here");
 				mansionButton.relocate(1080-5, 270-7);
+				Game.loadZone(HauntedMansion);
 			}
 		});
 		
@@ -286,6 +304,7 @@ public class worldMap
 				revertLocations();
 				ufoButton.getStyleClass().add("here");
 				ufoButton.relocate(1050-5, 535-7);
+				Game.loadZone(UFOCrashSite);
 			}
 		});
 		
@@ -297,6 +316,7 @@ public class worldMap
 				revertLocations();
 				unfinishedButton.getStyleClass().add("here");
 				unfinishedButton.relocate(975-5, 110-7);
+				Game.loadZone(UnfinishedLevel);
 			}
 		});
 		
@@ -325,32 +345,34 @@ public class worldMap
 	
 	public void createLocations()
 	{
-		YourHometown = new Location("Your Hometown", "Everyone smiles here and talks about sunshines and rainbows. It has a familiar scent of roasted pigs and handknit socks.", "YourHometown.mp3", "Town", 0);
-		newLocation = YourHometown;
-		Beach = new Location("Beach", "It's Beachy", "Beach.mp3", "Zone", 0);
-		Forest = new Location("Forest", "It's Beachy", "Forest.mp3", "Zone", 0);
-		Caves = new Location("Caves", "It's Beachy", "Caves.mp3", "Zone", 0);
-		Artics = new Location("Artics", "It's Beachy", "Artics.mp3", "Zone", 0);
-		TheCity = new Location("The City", "It's Beachy", "TheCity.mp3", "Town", 0);
-		Junkyard = new Location("Junkyard", "It's Beachy", "Junkyard.mp3", "Zone", 0);
-		Warzone = new Location("Warzone", "It's Beachy", "Warzone.mp3", "Zone", 0);
-		AbandonedMines = new Location("Abandoned Mines", "It's Beachy", "AbandonedMines.mp3", "Zone", 0);
-		TheMonastery = new Location("The Monastery", "It's Beachy", "TheMonastery.mp3", "Zone", 0);
-		AMistyVillage = new Location("A Misty Village", "It's Beachy", "AMistyVillage.mp3", "Town", 0);
-		Temple = new Location("Temple", "It's Beachy", "Temple.mp3", "Zone", 0);
-		Atlantis = new Location("Atlantis", "It's Beachy", "Atlantis.mp3", "Zone", 0);
-		SkyGarden = new Location("Sky Garden", "It's Beachy", "SkyGarden.mp3", "Zone", 0);
-		GreatRuins = new Location("Great Ruins", "It's Beachy", "GreatRuins.mp3", "Zone", 0);
-		TheWanderersOutpost = new Location("The Wanderer's Outpost", "It's Beachy", "TheWanderersOutpost.mp3", "Town", 0);
-		AncientTower = new Location("Ancient Tower", "It's Beachy", "AncientTower.mp3", "Zone", 0);
-		HauntedMansion = new Location("Haunted Mansion", "It's Beachy", "HauntedMansion.mp3", "Zone", 0);
-		UFOCrashSite = new Location("U.F.O. Crash Site", "It's Beachy", "UFOCrashSite.mp3", "Zone", 0);
-		UnfinishedLevel = new Location("Unfinished Level", "It's Beachy", "UnfinishedLevel.mp3", "Zone", 0);
-		YourHometown.setGrade("I");
-		TheCity.setGrade("II");
-		AMistyVillage.setGrade("III");
-		TheWanderersOutpost.setGrade("IV");
-		revertLocations();
+		if(newLocation == null) {
+			YourHometown = new Location("Your Hometown", "Everyone smiles here and talks about sunshines and rainbows. It has a familiar scent of roasted pigs and handknit socks.", "YourHometown.mp3", "Town", 0);
+			newLocation = YourHometown;
+			Beach = new Location("Beach", "It's Beachy", "Beach.mp3", "Zone", 0);
+			Forest = new Location("Forest", "It's Beachy", "Forest.mp3", "Zone", 0);
+			Caves = new Location("Caves", "It's Beachy", "Caves.mp3", "Zone", 0);
+			Artics = new Location("Artics", "It's Beachy", "Artics.mp3", "Zone", 0);
+			TheCity = new Location("The City", "It's Beachy", "TheCity.mp3", "Town", 0);
+			Junkyard = new Location("Junkyard", "It's Beachy", "Junkyard.mp3", "Zone", 0);
+			Warzone = new Location("Warzone", "It's Beachy", "Warzone.mp3", "Zone", 0);
+			AbandonedMines = new Location("Abandoned Mines", "It's Beachy", "AbandonedMines.mp3", "Zone", 0);
+			TheMonastery = new Location("The Monastery", "It's Beachy", "TheMonastery.mp3", "Zone", 0);
+			AMistyVillage = new Location("A Misty Village", "It's Beachy", "AMistyVillage.mp3", "Town", 0);
+			Temple = new Location("Temple", "It's Beachy", "Temple.mp3", "Zone", 0);
+			Atlantis = new Location("Atlantis", "It's Beachy", "Atlantis.mp3", "Zone", 0);
+			SkyGarden = new Location("Sky Garden", "It's Beachy", "SkyGarden.mp3", "Zone", 0);
+			GreatRuins = new Location("Great Ruins", "It's Beachy", "GreatRuins.mp3", "Zone", 0);
+			TheWanderersOutpost = new Location("The Wanderer's Outpost", "It's Beachy", "TheWanderersOutpost.mp3", "Town", 0);
+			AncientTower = new Location("Ancient Tower", "It's Beachy", "AncientTower.mp3", "Zone", 0);
+			HauntedMansion = new Location("Haunted Mansion", "It's Beachy", "HauntedMansion.mp3", "Zone", 0);
+			UFOCrashSite = new Location("U.F.O. Crash Site", "It's Beachy", "UFOCrashSite.mp3", "Zone", 0);
+			UnfinishedLevel = new Location("Unfinished Level", "It's Beachy", "UnfinishedLevel.mp3", "Zone", 0);
+			YourHometown.setGrade("I");
+			TheCity.setGrade("II");
+			AMistyVillage.setGrade("III");
+			TheWanderersOutpost.setGrade("IV");
+			revertLocations();
+		}
 	}
 	
 	public void startGame(game Game)
