@@ -22,6 +22,7 @@ import javafx.scene.control.TextField;
 import javafx.animation.Timeline;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
+import javafx.scene.input.KeyCode;
 //Sound
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -30,38 +31,25 @@ import javafx.scene.media.MediaPlayer.Status;
 
 public class game
 {
-	Scene game;
+	Scene game, zone, town;
 	Media bg = new Media(new File("YourHometown.mp3").toURI().toString());
 	MediaPlayer bgm;
 	Timeline timeline;
 	String username;
 	settingsRun settings;
 	Location currentLocation;
+	Button mapButton = new Button("Map");
+	Button settingsButton = new Button("Settings");
+	Button menuButton = new Button("Main Menu");
+	worldMap map;
+	gameRun menu;
+	Stage stage;
 	
-	public void runScene(Stage stage, gameRun menu, worldMap map, settingsRun s) {
+	public void runScene(Stage stg, gameRun mn, worldMap mp, settingsRun s) {
 		settings = s;
-		Pane layout = new Pane();
-		Button mapButton = new Button("Map");
-		Button settingsButton = new Button("Settings");
-		Button menuButton = new Button("Main Menu");
-		mapButton.setOnAction(e ->{map.runScene(stage, this);});
-		menuButton.setOnAction(e ->{
-			menu.runScene(stage);
-			bgm.stop();
-		});
-		
-		menuButton.relocate(0, 30);
-		
-		settingsButton.setOnAction(e -> settings.runScene(stage, menu, game));
-		settingsButton.relocate(0, 60);
-		
-		game = new Scene(layout, 1280, 720);
-        layout.getChildren().addAll(mapButton, settingsButton, menuButton);
-		game.getStylesheets().add("game.css");
-		stage.setScene(game);
-        stage.show();
-		bgm = new MediaPlayer(bg);
-		bgm.setCycleCount(bgm.INDEFINITE);
+		map = mp;
+		menu = mn;
+		stage = stg;
 		
 		try {
 			if(currentLocation.getType().equals("Town"))
@@ -96,7 +84,7 @@ public class game
 	}
 	
 	public void returnToGame(Stage stage) {
-		stage.setScene(game);
+		runScene(stage, menu, map, settings);
         stage.show();
 	}
 	
@@ -108,9 +96,58 @@ public class game
 	
 	public void loadTown(Location current) {
 		System.out.println(current);
+		System.out.println("Town Loaded");
+		Pane layout = new Pane();
+		town = new Scene(layout, 1280, 720);
+
+		mapButton.setOnAction(e ->{map.runScene(stage, this);});
+		menuButton.setOnAction(e ->{
+			menu.runScene(stage);
+			bgm.stop();
+		});
+
+		menuButton.relocate(0, 30);
+
+		settingsButton.setOnAction(e -> settings.runScene(stage, menu, town));
+		settingsButton.relocate(0, 60);
+
+		layout.getChildren().addAll(mapButton, settingsButton, menuButton);
+		town.getStylesheets().add("game.css");
+		stage.setScene(town);
+		stage.show();
 	}
 	
 	public void loadZone(Location current) {
 		System.out.println(current);
+		System.out.println("Zone Loaded");
+		Pane layout = new Pane();
+		zone = new Scene(layout, 1280, 720);
+
+		mapButton.setOnAction(e ->{map.runScene(stage, this);});
+		menuButton.setOnAction(e ->{
+			menu.runScene(stage);
+			bgm.stop();
+		});
+
+		menuButton.relocate(0, 30);
+
+		settingsButton.setOnAction(e -> settings.runScene(stage, menu, zone));
+		settingsButton.relocate(0, 60);
+
+		zone.setOnKeyPressed(e -> {
+			if (e.getCode() == KeyCode.NUMPAD1 || e.getCode() == KeyCode.SOFTKEY_1) {
+				System.out.println("A key was pressed");
+			}
+		});
+
+		layout.getChildren().addAll(mapButton, settingsButton, menuButton);
+		zone.getStylesheets().add("game.css");
+		stage.setScene(zone);
+		stage.show();
+	}
+	public void start() {
+		System.out.println("Started");
+		bgm = new MediaPlayer(bg);
+		bgm.setCycleCount(bgm.INDEFINITE);
 	}
 }
