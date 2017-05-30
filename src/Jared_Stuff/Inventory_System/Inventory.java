@@ -19,7 +19,9 @@ public class Inventory
 		{
 			System.out.println(i.getName() +
 			"\n" + i.getDescription() +
-			"\nDamage: " + i.getDamage());
+			"\nDamage: " + i.getDamage() + 
+			"\n Buy Price:" + i.getBuy() +
+			"\n Sell Price:" + i.getSell());
 		}
 	}
 	
