@@ -58,6 +58,7 @@ public class worldMap
 	Button mansionButton = new Button();
 	Button ufoButton = new Button();
 	Button unfinishedButton = new Button();
+	boolean started = false;
 
 	
 	public void runScene(Stage stage, game Game) {
@@ -345,7 +346,7 @@ public class worldMap
 	
 	public void createLocations()
 	{
-		if(newLocation == null) {
+		if(started == false) {
 			YourHometown = new Location("Your Hometown", "Everyone smiles here and talks about sunshines and rainbows. It has a familiar scent of roasted pigs and handknit socks.", "YourHometown.mp3", "Town", 0);
 			newLocation = YourHometown;
 			Beach = new Location("Beach", "It's Beachy", "Beach.mp3", "Zone", 0);
@@ -377,13 +378,16 @@ public class worldMap
 	
 	public void startGame(game Game)
 	{
-		Game.updateLocation(newLocation);
-		hometownButton.getStyleClass().add("here");
+		if(started == false) {
+			Game.updateLocation(newLocation);
+			started = true;
+			hometownButton.getStyleClass().add("here");
+		}
 	}
-	
+
 	public void revertLocations()
 	{
-		hometownButton.getStyleClass().clear();  
+		hometownButton.getStyleClass().clear();
 		hometownButton.getStyleClass().add("town");
 		hometownButton.relocate(80, 160);
 		beachButton.getStyleClass().clear();
@@ -398,7 +402,7 @@ public class worldMap
 		articButton.getStyleClass().clear();
 		articButton.getStyleClass().add("green");
 		articButton.relocate(455, 90);
-		
+
 		cityButton.getStyleClass().clear();
 		cityButton.getStyleClass().add("town");
 		cityButton.relocate(350, 500);
@@ -414,7 +418,7 @@ public class worldMap
 		monasteryButton.getStyleClass().clear();
 		monasteryButton.getStyleClass().add("yellow");
 		monasteryButton.relocate(460, 475);
-		
+
 		villageButton.getStyleClass().clear();
 		villageButton.getStyleClass().add("town");
 		villageButton.relocate(690, 300);
@@ -430,7 +434,7 @@ public class worldMap
 		ruinsButton.getStyleClass().clear();
 		ruinsButton.getStyleClass().add("orange");
 		ruinsButton.relocate(690, 255);
-		
+
 		outpostButton.getStyleClass().clear();
 		outpostButton.getStyleClass().add("town");
 		outpostButton.relocate(810, 240);
@@ -447,7 +451,7 @@ public class worldMap
 		unfinishedButton.getStyleClass().add("red");
 		unfinishedButton.relocate(975, 110);
 	}
-	
+
 	public void move(Location item, double eX, double eY)
 	{
 		hovered.setText(item.toString());
