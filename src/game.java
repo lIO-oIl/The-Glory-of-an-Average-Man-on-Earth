@@ -44,6 +44,8 @@ public class game
 	worldMap map;
 	gameRun menu;
 	Stage stage;
+	Zone combat;
+	Town safe;
 	
 	public void runScene(Stage stg, gameRun mn, worldMap mp, settingsRun s) {
 		settings = s;
@@ -87,13 +89,13 @@ public class game
 		runScene(stage, menu, map, settings);
         stage.show();
 	}
-	
+
 	public void newSettings(Double bgmVol, Double sfxVol, String name) {
 		bgm.setVolume(0.3 * (settings.getBGMVolume()));
 		//buttonPlay.setVolume(0.5 * sfxVol / 100);
 		username = name;
 	}
-	
+
 	public void loadTown(Location current) {
 		System.out.println(current);
 		System.out.println("Town Loaded");
@@ -116,7 +118,7 @@ public class game
 		stage.setScene(town);
 		stage.show();
 	}
-	
+
 	public void loadZone(Location current) {
 		System.out.println(current);
 		System.out.println("Zone Loaded");
@@ -135,7 +137,7 @@ public class game
 		settingsButton.relocate(0, 60);
 
 		zone.setOnKeyPressed(e -> {
-			if (e.getCode() == KeyCode.NUMPAD1 || e.getCode() == KeyCode.SOFTKEY_1) {
+			if (e.getCode() == KeyCode.NUMPAD1 || e.getCode() == KeyCode.DIGIT1) {
 				System.out.println("A key was pressed");
 			}
 		});
@@ -148,6 +150,8 @@ public class game
 	public void start() {
 		System.out.println("Started");
 		bgm = new MediaPlayer(bg);
-		bgm.setCycleCount(bgm.INDEFINITE);
+		if(!bgm.getStatus().equals(Status.PLAYING)){
+			bgm.play();
+		}
 	}
 }
