@@ -167,7 +167,12 @@ public class settingsRun
 	
 	public double getBGMVolume()
 	{
-		return bgmAdjust.getValue()/100;
+		try {
+			return bgmAdjust.getValue() / 100;
+		}
+		catch(Exception IOException){
+			return 1;
+		}
 	}
 	public double getSFXVolume()
 	{
