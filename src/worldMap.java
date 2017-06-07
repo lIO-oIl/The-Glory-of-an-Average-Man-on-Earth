@@ -373,6 +373,7 @@ public class worldMap
 			AMistyVillage.setGrade("III");
 			TheWanderersOutpost.setGrade("IV");
 			revertLocations();
+			allMobs.createMobs();
 		}
 	}
 	

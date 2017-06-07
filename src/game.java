@@ -44,7 +44,7 @@ public class game
 	worldMap map;
 	gameRun menu;
 	Stage stage;
-	Zone combat;
+	Zone combat = new Zone();
 	Town safe;
 	
 	public void runScene(Stage stg, gameRun mn, worldMap mp, settingsRun s) {
@@ -133,7 +133,10 @@ public class game
 
 		zone.setOnKeyPressed(e -> {
 			if (e.getCode() == KeyCode.NUMPAD1 || e.getCode() == KeyCode.DIGIT1) {
-				System.out.println("A key was pressed");
+				combat.runZone(current, 1);
+			}
+			if (e.getCode() == KeyCode.NUMPAD2 || e.getCode() == KeyCode.DIGIT2) {
+				combat.runZone(current, 2);
 			}
 		});
 

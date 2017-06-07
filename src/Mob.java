@@ -25,8 +25,13 @@ public class Mob
 	{
 		return damage;
 	}
+
     public int getHealth()
     {
         return health;
     }
+
+	public void setHealth(int h) {
+		health = h;
+	}
 }

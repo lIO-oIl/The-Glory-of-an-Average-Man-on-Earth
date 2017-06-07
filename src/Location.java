@@ -31,6 +31,7 @@ public class Location
 {
 	String name, description, bgm, type, grade;
 	int percent;
+	int progress;
 	
 	public Location()
 	{
@@ -39,6 +40,7 @@ public class Location
 		bgm = "YourHometown.mp3";
 		type = "Town";
 		percent = 0;
+		progress = 0;
 	}
 	
 	public Location(String n, String d, String m, String t, int p)
@@ -48,11 +50,7 @@ public class Location
 		bgm = m;
 		type = t;
 		percent = 0;
-	}
-	
-	public String getName()
-	{
-		return name;
+		progress = 0;
 	}
 	
 	public String getDesc()
@@ -72,6 +70,7 @@ public class Location
 	
 	public String getCompletion()
 	{
+		updateCompletion();
 		return percent + "%";
 	}
 	
@@ -85,9 +84,17 @@ public class Location
 		grade = "Grade " + g + " Town";
 	}
 	
-	public void setCompletion(int p)
+	public void updateCompletion()
 	{
-		percent = 5 * p;
+		percent = 5 * progress;
+	}
+
+	public void setCompletion(int p) {
+		progress = p;
+	}
+
+	public int getProgress(){
+		return progress;
 	}
 	
 	public String toString()
