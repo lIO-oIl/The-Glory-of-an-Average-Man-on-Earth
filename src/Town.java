@@ -1,19 +1,17 @@
+import Jared_Stuff.Mob_System.Mob;
+import Jared_Stuff.Mob_System.allMobs;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Town
 {
-    public String mob[] = {"Hi"};
+    public List<Mob> mob = allMobs.getGameMobs();
     public String current = "action"; //action, combat
+    int rand = (int)Math.random() * 99 + 1;
+    int zoneCompletion = 0;
 
-    public void runZone(int input)
+    public void runZone(Location town, int input)
     {
-        if(current.equals("action")){
-            if(input == 1)
-                search();
-            if(input == 2)
-                scout();
-        }
-        if(current.equals("combat")){
-            if(input == 1)
-                mon set health = mob health - player weapon damage;
-        }
+        System.out.println("Town");
     }
 }

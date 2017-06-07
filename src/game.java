@@ -67,12 +67,7 @@ public class game
 	}
 	
 	public void updateLocation (Location newLocation){
-		if(bgm.getStatus().equals(Status.PLAYING))
-		{
-			timeline = new Timeline(new KeyFrame(Duration.seconds(2), new KeyValue(bgm.volumeProperty(), 0)));
-			timeline.play();
-			bgm.stop();
-		}
+		bgm.stop();
 		
 		bg = new Media(new File(newLocation.getMusic()).toURI().toString());
 		bgm = new MediaPlayer(bg);
